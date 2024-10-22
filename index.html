@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Memórias</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'San Francisco', sans-serif; /* Semelhante à usada em iPhones */
+        }
+
+        body {
+            background-color: #2e2e2e; /* Preto */
+            color: #d9d9d9; /* Cinza claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 20px; /* Tamanho de fonte padrão aumentado */
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #ffffff; /* Branco */
+            font-size: 36px; /* Tamanho da fonte do título aumentado */
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            background-color: #3d3d3d; /* Cinza escuro */
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            cursor: pointer;
+            color: #c7a17a; /* Marrom claro */
+            font-size: 22px; /* Tamanho da fonte das opções de navegação aumentado */
+        }
+
+        nav ul li:hover {
+            color: #ffffff; /* Branco */
+        }
+
+        main {
+            background-color: #3d3d3d; /* Cinza escuro */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .photo-gallery img {
+            width: 50%;
+            height: 150px; /* Altura das fotos */
+            object-fit: cover;
+            border: 2px solid #c7a17a; /* Marrom */
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Memórias Escolares de Lucas</h1>
+        </header>
+        <nav>
+            <ul>
+                <li data-section="inicio">Início</li>
+                <li data-section="biografia">Biografia</li>
+                <li data-section="fotos">Fotos</li>
+            </ul>
+        </nav>
+        <main>
+            <section id="inicio" class="content active">
+                <h2>Início</h2>
+                <p>Sou Lucas, uma pessoa extrovertida e apaixonada por esportes. Amo estar cercado de amigos e participar de todas as atividades possíveis, especialmente educação física. O vôlei e o caçador são meus esportes favoritos, e eu nunca perco um passeio escolar.</p>
+            </section>
+            <section id="biografia" class="content">
+                <h2>Biografia</h2>
+                <p>Desde que me lembro, sempre fui muito ativo, especialmente quando o assunto é esportes. Durante os anos de escola, o vôlei foi o esporte que mais me encantou, mas eu também tinha uma paixão por jogos como o caçador. Além das atividades físicas, o que mais me cativava era a oportunidade de socializar e criar laços com os colegas de classe. A escola era um lugar de amizade e diversão, e eu sempre estava presente em todos os eventos, desde as aulas de educação física até os passeios escolares. Minhas memórias escolares são repletas de momentos felizes ao lado de amigos e muitas risadas.</p>
+            </section>
+            <section id="fotos" class="content">
+                <h2>Fotos</h2>
+                <div class="photo-gallery">
+                    <!-- Aqui você pode inserir suas fotos -->
+                    <img src="1.jpg" alt="Foto 1">
+                    <img src="2.jpg" alt="Foto 2">
+                    <img src="aa.jpg" alt="Foto 3">
+                    <img src="j.jpg" alt="Foto 4">
+                    <img src="6.jpg" alt="Foto 4">
+                    <img src="f0c97e7f-0610-4423-b717-cefdc451b9f3.jpeg" alt="Foto 5">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const tabs = document.querySelectorAll("nav ul li");
+            const sections = document.querySelectorAll("main section");
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", function() {
+                    sections.forEach(section => {
+                        section.classList.remove("active");
+                    });
+                    const target = document.getElementById(tab.getAttribute("data-section"));
+                    target.classList.add("active");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
